@@ -3,7 +3,6 @@ title: Java代理模式
 order: 2
 pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime", "Word", "PageView"]
 createTime: 2024/11/25 15:01:15
-permalink: /coding/java/mhgyoale/
 tags:
   - Java
   - 代理

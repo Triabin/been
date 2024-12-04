@@ -1,7 +1,6 @@
 ---
 title: LaTeX入门
 createTime: 2024/11/25 12:32:40
-permalink: /favorites/82go2ugd/
 tags: 
   - LaTeX
   - 数学公式

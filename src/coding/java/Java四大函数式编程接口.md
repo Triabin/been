@@ -1,7 +1,6 @@
 ---
 title: Java四大函数式编程接口
 createTime: 2024/11/25 15:01:09
-permalink: /coding/java/7ufvj7mf/
 tags:
   - Java
   - 函数式

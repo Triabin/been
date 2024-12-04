@@ -23,7 +23,7 @@ export default hopeTheme({
 
   logo: '/logo.png',
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "Triabin/been",
 
   docsDir: "src",
 

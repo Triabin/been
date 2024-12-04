@@ -1,7 +1,6 @@
 ---
 title: SpringBoot使用RabbitMQ
 createTime: 2024/11/25 15:01:50
-permalink: /coding/java/l8xjcum8/
 tags:
   - RabbitMQ
   - SpringBoot

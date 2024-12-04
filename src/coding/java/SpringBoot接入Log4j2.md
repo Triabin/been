@@ -1,7 +1,6 @@
 ---
 title: SpringBoot接入Log4j2
 createTime: 2024/11/25 15:02:00
-permalink: /coding/java/8oyagg6v/
 tags: 
   - Log4j2
   - Java

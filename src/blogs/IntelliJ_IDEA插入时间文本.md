@@ -1,7 +1,6 @@
 ---
 title: IntelliJ_IDEA插入时间文本
 createTime: 2024/08/09 00:56:21
-permalink: /blogs/s8vl1o8c/
 tags:
   - IDEA
   - 时间

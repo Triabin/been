@@ -2,7 +2,6 @@
 title: Java基础
 order: 1
 createTime: 2024/11/25 15:01:05
-permalink: /coding/java/s86ymjua/
 tags:
   - Java
   - 面试

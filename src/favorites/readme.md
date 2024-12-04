@@ -2,14 +2,13 @@
 title: 收藏网页
 home: true
 icon: marketeq:file-favorite-8
-permalink: /favorites/
 heroText: 收藏网页
 tagline: 主要包括一些我这些年冲浪过程中觉得有价值的网站。
 highlights:
   - features:
     -
       title: 本项目主题
-      icon: /hope-logo.png
+      icon: /assets/icon/chrome-512.png
       details: 倾情感谢Mister-Hope大佬提供的vuepress主题，本项目主题基于vuepress-theme-hope主题进行搭建。
       link: https://theme-hope.vuejs.press/zh/
     -

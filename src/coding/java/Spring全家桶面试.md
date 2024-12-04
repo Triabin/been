@@ -1,7 +1,6 @@
 ---
 title: Spring全家桶面试
 createTime: 2024/11/25 15:01:46
-permalink: /coding/java/87ws893e/
 tags:
   - Spring
   - Java

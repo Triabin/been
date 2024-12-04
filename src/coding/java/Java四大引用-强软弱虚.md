@@ -1,7 +1,6 @@
 ---
 title: Java四大引用-强软弱虚
 createTime: 2024/11/25 15:01:19
-permalink: /coding/java/ve82nk2t/
 tags:
   - Java
   - 引用
