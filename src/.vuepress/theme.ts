@@ -4,43 +4,47 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  locales: undefined,
-  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
-
+  // 主题基本选项
+  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app", // 当前网站部署到的域名。
+  // 文章显示的默认作者
   author: {
     name: 'Triabin',
     url: 'https://github.com/Triabin',
     email: ''
   },
+  license: 'MIT', // 站点默认协议
+  favicon: '/favicon.png', // 网站图标
+  iconAssets: 'iconify', // 文章/配置中使用的图标来源，可选值有: "iconify", "fontawesome", "fontawesome-with-brands"
 
-  license: 'MIT',
-
-  favicon: '/favicon.png',
-
-  // 关键词: "iconify", "fontawesome", "fontawesome-with-brands"
-  iconAssets: 'iconify', // https://icon-sets.iconify.design/
-    // "fontawesome-with-brands" // https://fontawesome.com/search?o=r&m=free,
-
-  logo: '/logo.png',
-
+  // 导航栏配置
+  navbarLayout: { start: ["Brand"], center: ["Links"], end: ["Language", "Repo", "Outlook", "Search"] },
+  logo: '/logo-dark.png',
+  logoDark: '/logo.png',
   repo: "Triabin/been",
-
-  docsDir: "src",
-
-  // 导航栏
+  repoDisplay: true,
+  repoLabel: 'GitHub', // GitHub, Gitlab, Gitee, Bitbucket
+  navbarAutoHide: 'none', // "always" | "mobile" | "none"
+  hideSiteNameOnMobile: true,
   navbar,
 
   // 侧边栏
   sidebar,
 
-  // 页脚
-  footer: "默认页脚",
-  displayFooter: true,
+  locales: undefined, // 多语言配置
 
-  // 多语言配置
-  metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
-  },
+  // 元数据配置(Meta)
+  lastUpdated: true, // 是否显示页面最后更新时间
+  contributors: true, // 是否显示贡献者
+  editLink: false, // 是否展示编辑此页链接
+  editLinkPattern: ':repo/edit/:branch/:path', // 编辑链接的匹配。其中 :repo :branch :path 会被自动替换为 docsRepo docsBranch 和 docsDir + filePath。
+  docsRepo: 'https://github.com/Triabin/been',
+  docsBranch:'master',
+  docsDir: "src",
+
+  // 页脚
+  footer: '用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VuePress Theme Hope</a> 主题 | Copyright © 2024 Triabin MIT Licensed',
+  copyright: '',
+  displayFooter: true,
 
   // 在这里配置主题提供的插件
   plugins: {
@@ -58,8 +62,6 @@ export default hopeTheme({
     markdownMath: {
       // 启用前安装 katex
       type: "katex",
-      // 或者安装 mathjax-full
-      // type: "mathjax",
     },
 
     // 此处开启了很多功能用于演示，你应仅保留用到的功能。
@@ -89,52 +91,12 @@ export default hopeTheme({
       sup: true,
       tasklist: true,
       vPre: true,
-
-      // 在启用之前安装 chart.js
-      // chart: true,
-
-      // insert component easily
-
-      // 在启用之前安装 echarts
-      // echarts: true,
-
-      // 在启用之前安装 flowchart.ts
-      // flowchart: true,
-
-      // gfm requires mathjax-full to provide tex support
-      // gfm: true,
-
-      // 在启用之前安装 mermaid
-      // mermaid: true,
-
-      // playground: {
-      //   presets: ["ts", "vue"],
-      // },
-
-      // 在启用之前安装 @vue/repl
-      // vuePlayground: true,
-
-      // install sandpack-vue3 before enabling it
-      // sandpack: true,
     },
-
-    // 如果你需要幻灯片，安装 @vuepress/plugin-revealjs 并取消下方注释
-    // revealjs: {
-    //   plugins: ["highlight", "math", "search", "notes", "zoom"],
-    // },
 
     // 搜索功能
     searchPro: {
       indexContent: true, // 是否索引内容
       autoSuggestions: true, // 是否自动提示
-      // customFields: [
-      //   {
-      //     getter: (page) => page.frontmatter.tags,
-      //     formatter: {
-      //       '/': '标签：$content'
-      //     }
-      //   }
-      // ],
       hotKeys: [{ key: "k", ctrl: true }, { key: "/", ctrl: true }], // 快捷键
       queryHistoryCount: 6 // 查询历史记录条数
     },
