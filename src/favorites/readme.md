@@ -2,6 +2,7 @@
 title: 收藏网页
 home: true
 icon: marketeq:file-favorite-8
+index: false
 heroText: ''
 tagline: ''
 highlights:

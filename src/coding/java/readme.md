@@ -1,7 +1,7 @@
 ---
 title: Java
 icon: devicon:java
-order: 0
+index: false
 ---
 
-<Catalog></Catalog>
+<Catalog hideHeading></Catalog>

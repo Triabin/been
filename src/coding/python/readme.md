@@ -1,6 +1,7 @@
 ---
 title: Python
 icon: catppuccin:python
+index: false
 ---
 
-<Catalog></Catalog>
+<Catalog hideHeading></Catalog>
