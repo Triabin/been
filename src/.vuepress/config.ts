@@ -15,6 +15,4 @@ export default defineUserConfig({
   ],
   bundler: viteBundler(),
   theme
-  // 和 PWA 一起启用
-  // shouldPrefetch: false,
 });

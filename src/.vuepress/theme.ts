@@ -1,11 +1,12 @@
 import { hopeTheme } from "vuepress-theme-hope";
+import { cut } from 'nodejs-jieba'
 
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   // 主题基本选项
-  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app", // 当前网站部署到的域名。
+  hostname: '', // 当前网站部署到的域名。
   // 文章显示的默认作者
   author: {
     name: 'Triabin',
@@ -17,7 +18,11 @@ export default hopeTheme({
   iconAssets: 'iconify', // 文章/配置中使用的图标来源，可选值有: "iconify", "fontawesome", "fontawesome-with-brands"
 
   // 导航栏配置
-  navbarLayout: { start: ["Brand"], center: ["Links"], end: ["Language", "Repo", "Outlook", "Search"] },
+  navbarLayout: {
+    start: ["Brand"],
+    center: ["Links"],
+    end: ["Tip", "Language", "Repo", "Outlook", "Search"]
+  },
   logo: '/logo-dark.png',
   logoDark: '/logo.png',
   repo: "Triabin/been",
@@ -46,60 +51,68 @@ export default hopeTheme({
   copyright: '',
   displayFooter: true,
 
+  // markdown配置
+  markdown: {
+    figure: true,
+    imgLazyload: true,
+    imgSize: true,
+
+    // 启用PlantUML
+    plantuml: true,
+
+    // 使用katex支持数学公式
+    math: {
+      type: 'katex'
+    },
+
+    codeTabs: true,
+    tabs: true,
+
+    align: true,
+    attrs: true,
+    component: true,
+    include: true,
+    mark: true,
+    spoiler: true,
+    stylize: [
+      {
+        matcher: "Recommended",
+        replacer: ({ tag }) => {
+          if (tag === "em")
+            return {
+              tag: "Badge",
+              attrs: { type: "tip" },
+              content: "Recommended",
+            };
+        },
+      },
+    ],
+    sub: true,
+    sup: true,
+    tasklist: true,
+    vPre: true,
+  },
+
   // 在这里配置主题提供的插件
   plugins: {
     components: {
       components: ["Badge", "VPCard"],
     },
-
-    // 此处开启了很多功能用于演示，你应仅保留用到的功能。
-    markdownImage: {
-      figure: true,
-      lazyload: true,
-      size: true,
-    },
-
-    markdownMath: {
-      // 启用前安装 katex
-      type: "katex",
-    },
-
-    // 此处开启了很多功能用于演示，你应仅保留用到的功能。
-    mdEnhance: {
-      align: true,
-      attrs: true,
-      component: true,
-      demo: true,
-      include: true,
-      mark: true,
-      plantuml: true,
-      spoiler: true,
-      stylize: [
+    slimsearch: {
+      indexContent: true,
+      indexOptions: { tokenize: (text, fieldName) => fieldName === 'id' ? [text] : cut(text, true) },
+      suggestion: true,
+      hotKeys: [{ key: "k", ctrl: true }, { key: "/", ctrl: false }],
+      queryHistoryCount: 10,
+      resultHistoryCount: 5,
+      searchDelay: 150,
+      filter: (page) => true,
+      customFields: [
         {
-          matcher: "Recommended",
-          replacer: ({ tag }) => {
-            if (tag === "em")
-              return {
-                tag: "Badge",
-                attrs: { type: "tip" },
-                content: "Recommended",
-              };
-          },
-        },
-      ],
-      sub: true,
-      sup: true,
-      tasklist: true,
-      vPre: true,
-    },
-
-    // 搜索功能
-    searchPro: {
-      indexContent: true, // 是否索引内容
-      autoSuggestions: true, // 是否自动提示
-      hotKeys: [{ key: "k", ctrl: true }, { key: "/", ctrl: true }], // 快捷键
-      queryHistoryCount: 6 // 查询历史记录条数
-    },
-
+          getter: (page) => page.frontmatter.tags as string | string[],
+          formatter: '标签：$content'
+        }
+      ]
+    }
   }
 });

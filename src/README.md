@@ -58,13 +58,8 @@ highlights:
 
       - title: 博客
         icon: fa6-brands:blogger-b
-        details: 博客文章专门与笔记做了区分，主要是一些根据自己的想法做出来的成果
+        details: 博客文章专门与笔记做了区分，主要是一些自己输出的成果
         link: /blogs/
-
-      - title: 收藏网页
-        icon: marketeq:file-favorite-8
-        details: 主要包括一些我这些年冲浪过程中觉得有价值的网站
-        link: /favorites/
       
       - title: 随笔
         icon: icon-park:notebook-and-pen

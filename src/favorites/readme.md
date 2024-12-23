@@ -7,7 +7,7 @@ heroText: ''
 tagline: ''
 highlights:
   - header: 收藏网页
-    description: 主要包括一些我这些年冲浪过程中觉得有价值的网站。
+    description: 这些年的冲浪过程中遇到的值得驻足的风景！
     features:
       -
         title: 本项目主题
@@ -34,4 +34,24 @@ highlights:
         icon: /file-icons--latex.png
         details: LaTeX（读作/ˈlɑːtɛx/或/ˈleɪtɛx/）是一个让你的文档看起来更专业的排版系统，它尤其适合处理篇幅较长、结构严谨的文档，并且十分擅长处理公式表达。
         link: LaTeX入门
+      -
+        title: hello-algo
+        icon: https://www.hello-algo.com/assets/images/favicon.png
+        details: GitHub仓库，一本对新手学习数据结构与算法非常友好的书籍。
+        link: https://github.com/krahets/hello-algo
+      -
+        title: deprecated-version
+        icon: https://roadmap.sh/manifest/favicon.ico
+        details: GitHub仓库，编程语言学习路线图，每个阶段的学习内容，以及对应的学习资源（不过指向的学习视频都是国外视频平台的）。
+        link: https://github.com/roadmapsh/deprecated-version
+      -
+        title: 力扣LeetCode
+        icon: https://leetcode.cn/favicon.ico
+        details: 程序员就不用说这个网站了吧
+        link: https://leetcode.cn/
+      -
+        title: 来自菜鸟教程的http教程
+        icon: https://www.runoob.com/favicon.ico
+        details: 先放这儿，免得忘了，有空看看
+        link: https://www.runoob.com/http/http-tutorial.html
 ---

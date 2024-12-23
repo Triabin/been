@@ -23,7 +23,7 @@ export default navbar([
       {
         text: "Python",
         icon: "catppuccin:python",
-        link: 'python',
+        link: 'python/',
         activeMatch: "^/coding/python"
       },
       {
