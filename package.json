@@ -11,13 +11,17 @@
     "docs:update-package": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.18",
-    "@vuepress/plugin-slimsearch": "2.0.0-rc.65",
+    "@vuepress/bundler-vite": "2.0.0-rc.19",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.67",
+    "iconv-lite": "^0.6.3",
     "katex": "^0.16.11",
+    "mermaid": "^11.4.1",
     "nodejs-jieba": "^0.2.1",
     "sass-embedded": "^1.79.5",
+    "vite-plugin-node-polyfills": "^0.22.0",
     "vue": "^3.5.12",
-    "vuepress": "2.0.0-rc.18",
+    "vue-clipboard3": "^2.0.0",
+    "vuepress": "2.0.0-rc.19",
     "vuepress-theme-hope": "2.0.0-rc.66"
   }
 }

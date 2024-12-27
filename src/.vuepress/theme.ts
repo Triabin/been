@@ -56,21 +56,20 @@ export default hopeTheme({
     figure: true,
     imgLazyload: true,
     imgSize: true,
-
+    imgMark: true,
     // 启用PlantUML
     plantuml: true,
-
+    mermaid: true,
     // 使用katex支持数学公式
     math: {
       type: 'katex'
     },
-
     codeTabs: true,
     tabs: true,
-
     align: true,
     attrs: true,
     component: true,
+    footnote: true, // 脚注
     include: true,
     mark: true,
     spoiler: true,

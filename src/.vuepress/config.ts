@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
-import { viteBundler } from '@vuepress/bundler-vite'
+import { viteBundler } from '@vuepress/bundler-vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 import theme from "./theme.js";
 
@@ -14,5 +15,6 @@ export default defineUserConfig({
     ['meta', { name: 'referrer', content: 'no-referrer' }]
   ],
   bundler: viteBundler(),
-  theme
+  theme,
+  plugins: [ nodePolyfills() ]
 });
