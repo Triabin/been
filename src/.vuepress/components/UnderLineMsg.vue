@@ -20,7 +20,7 @@ const color = ref('gray');
 /**
  * 显示参数相关提示信息
  */
-const showMsg = (_msg: string = '', type : 'success' | 'fail' | 'warning' | 'info' = 'info') => {
+const showMsg = (_msg: string = '', type : 'success' | 'fail' | 'warning' | 'info' = 'info', ms: number = 0) => {
   msg.value = _msg;
   visible.value = !!_msg;
   if (type === 'success') {
@@ -31,6 +31,12 @@ const showMsg = (_msg: string = '', type : 'success' | 'fail' | 'warning' | 'inf
     color.value = 'yellow';
   } else {
     color.value = 'gray';
+  }
+  if (ms > 0) {
+    setTimeout(() => {
+      msg.value = '';
+      visible.value = false;
+    }, ms);
   }
 }
 
