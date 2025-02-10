@@ -80,6 +80,7 @@
 import { reactive, ref, watch } from 'vue';
 import useClipboard from 'vue-clipboard3';
 import UnderLineMsg from "../UnderLineMsg.vue";
+import { clickDownload } from "../../common/utils.js";
 
 const props = defineProps({
   // 是否隐藏标题
@@ -338,14 +339,15 @@ const copyLyric = async () => {
  * 生成歌词文件函数
  */
 const genLrcFile = () => {
-  const blob = new Blob([completedLyric.value], {type: 'text/plain;charset=utf-8'});
-  const url = URL.createObjectURL(blob)
-  const link = document.createElement('a');
-  link.href = url;
-  let fileName = (title.line === -1 && artist.line === -1) ? '歌词' : `${artist.text === '' ? '歌手' : artist.text} - ${title.text === '' ? '歌名' : title.text}`;
-  link.download = `${fileName}.lrc`;
-  link.click();
-  URL.revokeObjectURL(url);
+  if (!completedLyric.value) {
+    oprMsgRef.value.showMsg('内容为空！', 'fail', 3000);
+    return;
+  }
+  clickDownload(
+      completedLyric.value,
+      'text/plain',
+      () => ((title.line === -1 && artist.line === -1) ? '歌词' : `${artist.text === '' ? '歌手' : artist.text} - ${title.text === '' ? '歌名' : title.text}`) + '.lrc'
+  );
 }
 
 /**

@@ -9,6 +9,12 @@ export default navbar([
     activeMatch: "^/coding",
     children: [
       {
+        text: '通用技术',
+        icon: 'arcticons:my-base',
+        link: 'common/',
+        activeMatch: '^/coding/common'
+      },
+      {
         text: "C/C++",
         icon: "vscode-icons:file-type-cpp2",
         link: 'c-cpp/',
@@ -49,6 +55,11 @@ export default navbar([
     text: '博客',
     icon: 'fa6-brands:blogger-b',
     link: '/blogs/'
+  },
+  {
+    text: '游戏攻略',
+    icon: 'marketeq:game-console-cable',
+    link: '/game-guide/'
   },
   '/favorites/index',
   // '/portfolio' // 档案主页demo

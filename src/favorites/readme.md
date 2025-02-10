@@ -54,4 +54,9 @@ highlights:
         icon: https://www.runoob.com/favicon.ico
         details: 先放这儿，免得忘了，有空看看
         link: https://www.runoob.com/http/http-tutorial.html
+      -
+        title: Z-Library
+        icon: /assets/icon/z-lib.svg
+        details: 啥书都有，尤其是课本、技术相关书籍、完结小说等……
+        link: https://zh.z-library.sk/
 ---

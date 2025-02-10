@@ -11,13 +11,6 @@ bgImageStyle:
 heroText: Been留痕
 tagline: 人生到处知何似，应似飞鸿踏雪泥。
 actions:
-  - text: 使用指南
-    icon: lightbulb
-    link: ./demo/
-    type: primary
-
-  - text: 文档
-    link: ./guide/
 
 highlights:
   - bgImage: /assets/image/2-light.svg
@@ -48,7 +41,7 @@ highlights:
 
       - title: 编程语言：仓颉
         icon: /icon-coding-cangjie.png
-        details: 国产编程语言，就是保密协议还没过，先放个logo给你们看看
+        details: 国产编程语言，我也还在探索中~
         link: /coding/cangjie/
 
       - title: 笔记
@@ -65,4 +58,14 @@ highlights:
         icon: icon-park:notebook-and-pen
         details: 男人嘛，每个月总有那么二三十天心情不好
         link: /essay/
+
+      - title: 工具集
+        icon: icon-park:tool
+        details: 想到要用什么就开发什么（PS：虽然不一定能写得出来）
+        link: /tools/
+
+      - title: 游戏攻略
+        icon: marketeq:game-console-cable
+        details: xxx玩家从不看攻略🙃🙃
+        link: /game-guide/
 ---
