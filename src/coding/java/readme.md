@@ -230,7 +230,105 @@ java HelloWorld # .class可以省略
 
 ## Java几个基础命令使用与讲解（重要）
 
-javac、java、jconsole、jstack
+说明：命令行示例中，使用`[]`括起来的部分意为非必填，没有括起来则意为必填。
+
+### javac命令详解
+
+`javac [ options ] [ sourcefiles ] [ @files ]`
+
+作用：用于将.java文件编译为JVM可识别的字节码文件（.class）。
+
+参数顺序可任意排列
+
+* `options`：命令行选项，可以指定输出目标目录、字符集等
+* `sourcefiles`：一个或多个要编译的源文件（.java文件），支持多个文件（用空格分隔或者使用“*”号模糊匹配）
+* `@files`：一个或多个对源文件进行列表的文件，文件中存放的是要编译的java文件路径，文件之间使用换行符分隔（每行一个）
+
+一般用法：
+
+```bash
+javac Xxx.java # 直接编译，编译后的.class文件放到源文件所在目录下
+
+javac Xxx.java -d 编译后文件输出路径 # 编译源文件，并将.class文件放到“-d”参数后面指定的目标路径中
+
+javac Xxx.java -encoding 字符集名称 # 编译源文件，并指定编码格式
+
+javac @xxx.txt # 编译xxx.txt文件中列出的.java文件所有，每行一个文件
+```
+
+### java命令详解
+
+`java [options] class [args...]`
+
+作用：运行Java应用程序。
+
+参数顺序可任意排列
+
+* `options`：Java命令提供了多个选项来控制Java虚拟机和应用程序的行为，可以使用`java -help`查看所有选项即说明，以下是一些常见的选项：
+
+  ① `-classpath path`：指定Java虚拟机应该搜索类文件的路径，与`javac`编译选项的`-cp`相同
+
+  ② `-Xmx size`：指定堆内存大小的最大值，以字节为单位，例如，`xXmx1024m`表示堆内存大小最大值为1024MB
+
+  ③ `-Xms size`：指定初始堆内存大小，以字节为单位
+
+  ④ `-version`：查看Java版本信息
+
+  ⑤ `-jar file`：执行指定的.jar文件
+
+  ⑥ `-Dproperty=value`：设置系统属性，`property`为属性名，`value`为属性值
+
+* `class`：要运行的Java类名（`.class`可以省略）
+
+* `args`：传递给主方法的参数，这些参数将作为字符串数组传递给`main()`方法，参数间使用空格分隔
+
+### jps命令详解
+
+`jps [options]`
+
+作用：查看当前系统中正在运行的Java程序，并获取它们的进程ID，是查询Java进程非常简单实用的一个命令。
+
+* `options`：jps提供了多个选项来控制输出的内容和格式（可使用`jps -help`查看所有选项），以下是一些常见选项：
+
+  ① `-q`：只显示进程ID，不显示JVM名称
+
+  ② `-m`：显示启动时传递给主类的参数
+
+  ③ `-l`：显示主类的全类名以及传递给主类的参数
+
+  ④ `-v`：显示JVM启动时的命令行信息
+
+  ⑤ `-V`：显示jps版本信息
+
+### jconsole命令详解
+
+`jconsole [optionally, hostname:port or service:jmx:rmi:///…]`
+
+作用：jconsole是JDK自带的图形化监视工具，它提供了一个友好的用户界面，用于可视化地监控和管理Java应用程序，可以实时显示Java应用程序的性能指标、内存使用情况、线程状态等信息，还可以远程监控。
+
+**![image-20250213005419396](https://gitee.com/triabin/img_bed/raw/master/2025/02/13/624855acb832f3823c6cf71930d0b619-image-20250213005419396.png)**
+
+* `optionally, hostname:port or service:jmx:rmi:///…`：可选参数，用于连接到要监控的Java进程。如果忽略此参数，则会打开一个对话框，允许您选择要监视的进程。
+
+使用jconsole命令可以启动Java虚拟机（JVM），并以图形化的方式监视JVM的运行状况。图形界面中提供了各种监视面板，展示当前JVM的CPU使用率、内存使用情况、GC状态等，同时可以查看线程、类、MBean等信息。除此之外，jconsole还提供了常规操作管理Java应用程序的功能，例如观察垃圾回收、查看堆内存使用情况、分析线程的执行情况等。此外，如要添加可扩展性，则可使用MBean控制进一步管理应用程序。jconsole是一种功能齐全、简单易用的监控工具，能够帮助开发团队及时发现并解决Java应用程序中的性能问题。
+
+### jstack命令详解
+
+`jstack [options] pid`
+
+作用：jstack命令用于查看Java应用程序的线程信息和调用栈信息。它通常用于分析Java进程出现卡死、死锁等问题时定位问题原因。（能看到线程当前状态`NEW | RUNNABLE | BLOCKED | WAITING | TIMED_WAITING | TERMINATED`）
+
+* `options`：选项，以下是一些常用选项：
+
+  ① `-F`：当普通输出方式已经失效时，强制输出线程堆栈信息
+
+  ② `-l`：风险较高，除了统计信息外，还会打印关于每个线程的锁和监视器
+
+  ③ `-m`：会显示每个线程占用的内存情况
+
+  ④ `-h`：显示命令帮助
+
+  ⑤ `-J`：直接传递给JVM参数
 
 ## 目录
 

@@ -15,7 +15,6 @@ export default hopeTheme({
   },
   license: 'MIT', // 站点默认协议
   favicon: '/favicon.png', // 网站图标
-  iconAssets: 'iconify', // 文章/配置中使用的图标来源，可选值有: "iconify", "fontawesome", "fontawesome-with-brands"
 
   // 导航栏配置
   navbarLayout: {
@@ -112,6 +111,9 @@ export default hopeTheme({
           formatter: '标签：$content'
         }
       ]
+    },
+    icon: {
+      assets: 'iconify', // 文章/配置中使用的图标来源，可选值有: "iconify", "fontawesome", "fontawesome-with-brands"
     }
   }
 });
