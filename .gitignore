@@ -5,3 +5,5 @@ src/.vuepress/.temp/
 src/.vuepress/dist/
 src/test
 been.iml
+package-lock.json
+.idea

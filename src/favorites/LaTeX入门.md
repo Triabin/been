@@ -2,11 +2,11 @@
 title: LaTeX入门
 createTime: 2024/11/25 12:32:40
 index: false
-tags: 
+tags:
   - LaTeX
   - 数学公式
   - Markdown
-copyright: 
+copyright:
   creation: reprint
   license: CC-BY-NC-SA-4.0
   source: https://oi-wiki.org/tools/latex
