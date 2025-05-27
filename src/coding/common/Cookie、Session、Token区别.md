@@ -5,6 +5,7 @@ tags:
   - Cookie
   - Session
   - Token
+  - JWT
   - 安全
 ---
 # Cookie、Session、Token区别
