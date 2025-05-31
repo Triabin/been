@@ -63,9 +63,4 @@ highlights:
         icon: icon-park:tool
         details: 想到要用什么就开发什么（PS：虽然不一定能写得出来）
         link: /tools/
-
-      - title: 游戏攻略
-        icon: marketeq:game-console-cable
-        details: xxx玩家从不看攻略🙃🙃
-        link: /game-guide/
 ---

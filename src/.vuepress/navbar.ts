@@ -56,11 +56,6 @@ export default navbar([
     icon: 'fa6-brands:blogger-b',
     link: '/blogs/'
   },
-  {
-    text: '游戏攻略',
-    icon: 'marketeq:game-console-cable',
-    link: '/game-guide/'
-  },
   '/favorites/index',
   // '/portfolio' // 档案主页demo
 ]);
