@@ -1,6 +1,6 @@
 ---
 title: SpringBoot
-order: 6
+order: 7
 ---
 
 # SpringBoot

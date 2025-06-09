@@ -1,6 +1,6 @@
 ---
 title: SpringAI
-order: 7
+order: 8
 ---
 
 # SpringAI学习项目
