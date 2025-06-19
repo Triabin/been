@@ -19,6 +19,11 @@ highlights:
       background-repeat: repeat
       background-size: initial
     features:
+      - title: 编程通用技术
+        icon: arcticons:my-base
+        details: 编程语言只是工具，这里才是真正的基础与精华
+        link: /coding/common/
+
       - title: 编程语言：C/C++
         icon: vscode-icons:file-type-cpp2
         details: 敢说精通的人要么是大神，要么是愣头青
