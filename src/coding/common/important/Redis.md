@@ -1457,7 +1457,7 @@ geohash key member [member ...]
 
 38. 数据库与缓存不一致如何解决？<span id="question38"></span>
 
-    [见第19题](question19)
+    [见第19题](#question19)
 
 39. 简述一下主从不一致的问题。<span id="question39"></span>
 
@@ -1465,11 +1465,11 @@ geohash key member [member ...]
 
 40. 描述一下Redis持久化的方式。<span id="question40"></span>
 
-    [见第17题](question17)
+    [见第17题](#question17)
 
 41. 描述一下持久化原理。<span id="question41"></span>
 
-    [见第17题](question17)
+    [见第17题](#question17)
 
 42. 为什么使用setnx(Redis实现分布式锁的指令)？<span id="question42"></span>
 
