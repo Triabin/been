@@ -176,3 +176,108 @@ const colorThief = new ColorThief();
 const colors: Array<Array<number>> = await colorThief.getPalette(img, count);
 ```
 
+## 4、文字智能匹配背景
+
+来源：[https://www.bilibili.com/video/BV18zoCYsETw/](https://www.bilibili.com/video/BV18zoCYsETw/)
+
+文字颜色与背景颜色混淆导致文字显示不清晰时，可以给文字添加样式：
+
+```css
+:root {
+  mix-blend-mode: difference;
+}
+```
+
+本质是添加了一个混合，该操作会对受影响的元素每一个显示的像素点与背景颜色进行混合差值运算，从而得到一个新的颜色。上述案例中就是指定了使用差值算法（difference）进行混合运算，差值算法本质就是将自身RGB值分别与背景RGB值相减，从而得到新的RGB值。
+
+```ts
+<blend-mode> = 
+  normal       |
+  multiply     |
+  screen       |
+  overlay      |
+  darken       |
+  lighten      |
+  color-dodge  |
+  color-burn   |
+  hard-light   |
+  soft-light   |
+  difference   |
+  exclusion    |
+  hue          |
+  saturation   |
+  color        |
+  luminosity 
+```
+
+## 5、在vite中自动生成路由
+
+来源：[https://www.bilibili.com/video/BV12NKRzFEu7/]
+
+有如下路由配置：
+
+```javascript
+const routes = [
+  {
+    path: '/',
+    name: 'index',
+    component: () => import('../views/index.vue'),
+    meta: {
+      title: '首页',
+      menuOrder: 1
+    }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/about/index.vue'),
+    meta: {
+      title: '关于',
+      menuOrder: 10
+    }
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: () => import('../views/contact/index.vue'),
+    meta: {
+      title: '联系',
+      menuOrder: 20
+    }
+  }
+]
+```
+
+路由配置本质上其实是跟目录结构在重复，这种重复的地方，很容易带来维护上的困难，尤其是当路由页面非常非常多的时候，一旦出现变更，维护上较为困难，且这种重复性的东西，能够自动生成是最好的，这样就避免了维护上的困难，例如一处变更，多出修改，单词拼写错误，增减页面只需增删对应页面文件即可等等。
+
+这就是开发中的一种模式，叫做约定大于配置，例如react中的umijs，还有uniapp中也用目录结构代替了路由，但是vite官方和vue-cli中，都没有这些东西，因此只能自己手动实现。
+
+从目录结构来看，目录结构中只缺失了路由对象中的meta字段信息，因此采用微信小程序的解决方案，在每个页面旁边创建一个page.js，在该文件中导出页面相关的一些额外的信息。
+
+首先，要明确，目录结构只存在于编译时，编译打包后的运行时结果中并不存在当前的目录结构，因此要在编译时读取目录结构信息，`import.meta.glob`（vite）或`require.context`（webpack），
+
+```javascript
+// 函数需要传入一个参数，改参数为一个pattern，为一个路径匹配规则，读取结果为一个对象，该对象属性名对应匹配文件的路径，属性值对应一个函数，通过调用该函数可以导入该模块
+const pages = import.meta.glob('../views/**/page.js', {
+  eager: true, // 不需要函数，直接将函数结果（导出的模块）返回
+  import: 'default' // 自动获取导出模块中的default导出结果
+});
+
+// 获取路由页面对应组件
+const components = import.meta.glob('../views/**/index.vue');
+
+// 将该对象转为路由配置
+const routes = Object.entries(pages).map(([path, meta]) => {
+  const compPath = path.replace('page.js', 'index.vue');
+  path = path.replace('../views/', '').replace('/page.js', '') || '/';
+  const name = path.split('/').filter(Boolean).join('-') || 'index';
+  return {
+    path,
+    name,
+    component: components[compPath], // 注意不能直接使用`import(compPath)`，因为此处获取到的是开发环境里面的路径，生产环境中该路径会丢失，需要在使用import.meta.glob函数获取生产环境的路径
+    meta
+  };
+});
+```
+
+如此，这部分代码写完就可以不用再做修改，以后增减页面，只需增删对应页面文件及其配置即可，不用再修改路由配置。
