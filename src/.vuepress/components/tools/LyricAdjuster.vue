@@ -78,7 +78,6 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref, watch } from 'vue';
-import useClipboard from 'vue-clipboard3';
 import UnderLineMsg from "../UnderLineMsg.vue";
 import { clickDownload } from "../../common/utils.js";
 
@@ -108,7 +107,6 @@ const offset = reactive({ line: -1, text: '' }); // 以毫秒为单位加快（+
 const remark = reactive({ line: -1, text: '' }); // 创建此LRC文件的播放器或编辑器
 const version = reactive({ line: -1, text: '' }); // 程序版本
 const lrcInfoVisible = ref(false);
-const { toClipboard } = useClipboard();
 const oprMsgRef = ref<any>();
 const paramMsgRef = ref<any>();
 const inputMsgRef = ref<any>();
@@ -327,7 +325,7 @@ const editLyric = () => {
  */
 const copyLyric = async () => {
   try {
-    await toClipboard(completedLyric.value);
+    await navigator.clipboard.writeText(completedLyric.value);
     oprMsgRef.value.showMsg('已复制到剪切板！', "success", 3000);
   } catch (e) {
     console.error(e);
