@@ -52,14 +52,12 @@
 import {ref, watch} from 'vue';
 import * as iconv from 'iconv-lite';
 import UnderLineMsg from "../UnderLineMsg.vue";
-import useClipboard from 'vue-clipboard3';
 
 const props = defineProps({
   title: {
     type: String
   }
 });
-const { toClipboard } = useClipboard();
 const onSrcCharsetMsgRef = ref<any>();
 const onSrcContentMsgRef = ref<any>();
 const onCharsetMsgRef = ref<any>();
@@ -99,7 +97,7 @@ watch(() => [srcContent.value, srcCharset.value, otherSrcCharset.value, charset.
 const copy = async (text: string) => {
   if (!text) return;
   try {
-    await toClipboard(text);
+    await navigator.clipboard.writeText(text);
   } catch (e) {
     console.error(e)
   }
