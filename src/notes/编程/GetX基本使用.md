@@ -1,5 +1,6 @@
 ---
 title: GetX基本使用
+createTime: 2025/07/17 18:06:14
 tags:
   - Flutter
   - GetX
